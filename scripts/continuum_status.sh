@@ -1,12 +1,12 @@
 #!/usr/bin/env bash
 
-CURRENT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+CURRENT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 source "$CURRENT_DIR/helpers.sh"
 source "$CURRENT_DIR/variables.sh"
 
 print_status() {
-	local save_int="$(get_tmux_option "$auto_save_interval_option")"
+	local save_int="$(get_tmux_option "$auto_save_interval_option" "$auto_save_interval_default")"
 	local status=""
 	local style_wrap
 	if [ $save_int -gt 0 ]; then
